@@ -1,27 +1,24 @@
-# Next.js + Tailwind CSS Example
+# Formula 1 rankings
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+- neither 2 nor 4 hours is enough to do this properly with extracting reusable components, typing, SSR, proper data fetching and caching, configuring formatting and linting, etc.
+- I suggest using some public API other than Rapid-Api, I was unable to find working API key in that docs and dashboard in short time and that shouldn't be the point of this task
 
-## Deploy your own
+## Explanation
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+This is basically nested tabs problem, the first level are seasons buttons, the second level is switch control. Data needs to be fetched and states for the switch, buttons, tables, sorting needs to be handled, plus styling.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+### Done
 
-## How to use
+- break app into reusable components, `TableHead` and `TableBody` aren't optimally solved, better chose simpler solution and make separate `TableRowTeam`, `TableRowDriver`
+- basic styling with Tailwind
+- basic SSR setup with `react-query` and `axios` data fetching
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### Todo
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+- solve Rapid-Api key, currently app is not rendered, unable to fetch data
+- states aren't implemented at all - switch, buttons, table, sorting
+- improve styling to match Figma
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+### Screenshot
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+![Screenshot](/screenshots/Screenshot.png)
